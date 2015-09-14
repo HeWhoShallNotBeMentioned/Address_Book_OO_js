@@ -1,0 +1,39 @@
+body {
+    background-color: #A1D490;
+    /*color: #90EE90;*/
+    /*color: #8FBC8F;*/
+    /*background-image: url(http://lifewallpaperz.com/images/2015/beautiful/beautiful-05.jpg);*/
+}
+
+#show-contact {
+  display: none;
+}
+
+.contact {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.contact:hover {
+  text-decoration: underline;
+}
+
+h1, h2, {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 3.8em;
+
+}
+
+h3, h4{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+#result {
+  margin-top: 40px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.8em;
+}
