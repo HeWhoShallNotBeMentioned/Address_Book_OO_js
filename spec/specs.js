@@ -1,9 +1,15 @@
-describe("wordFindReplace", function() {
-  it('returns "Hello Universe" for a string entered with "Universe" replaced with "World"', function() {
-    expect(wordFindReplace("Hello Universe", "Universe", "World")).to.equal("Hello World");
-  });
+describe("Contact", function() {
+  it("creates a new contact with given specifications", function() {
+     var testContact = new Contact("Rita", "Moreno");
+     expect(testContact.firstName).to.equal("Rita");
+     expect(testContact.lastName).to.equal("Moreno");
+     expect(testContact.addresses).to.eql([]);
+ });
 
-  it('returns "Chris is a smelly man" for a string entered with "silly boy" replaced with "smelly man"', function() {
-    expect(wordFindReplace("Chris is a silly boy", "silly boy", "smelly man")).to.equal("Chris is a smelly man");
-  });
+ it('adds the fullName method to all contacts', function() {
+     var testContact = new Contact("Sherlock", "Holmes");
+     expect(testContact.fullName()).to.equal("Sherlock Holmes");
+ });
+
+
 });
