@@ -20,37 +20,40 @@ Address.prototype.fullAddress = function() {
   return this.type + ", " + this.street + ", " + this.city + ", " + this.state;
 }
 
+function addAddressFields() {
+  $("#new-addresses").append('<div class="new-address">' +
+                              '<div class="form-group">' +
+                                '<label for="new-type">Type</label>' +
+                                '<input type="text" class="form-control new-type">' +
+                              '</div>' +
+                               '<div class="form-group">' +
+                                 '<label for="new-street">Street</label>' +
+                                 '<input type="text" class="form-control new-street">' +
+                               '</div>' +
+                               '<div class="form-group">' +
+                                 '<label for="new-city">City</label>' +
+                                 '<input type="text" class="form-control new-city">' +
+                               '</div>' +
+                               '<div class="form-group">' +
+                                 '<label for="new-state">State</label>' +
+                                 '<input type="text" class="form-control new-state">' +
+                               '</div>' +
+                             '</div>');
+}
+
 function resetFields() {
-  $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-type").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
+  $("input").val("");
+  $("#new-addresses").empty();
+  addAddressFields();
 }
 
 
 $(document).ready(function() {
+  addAddressFields();
+
   $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address">' +
-                                '<div class="form-group">' +
-                                  '<label for="new-type">Type</label>' +
-                                  '<input type="text" class="form-control new-type">' +
-                                '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-street">Street</label>' +
-                                   '<input type="text" class="form-control new-street">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-city">City</label>' +
-                                   '<input type="text" class="form-control new-city">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-state">State</label>' +
-                                   '<input type="text" class="form-control new-state">' +
-                                 '</div>' +
-                               '</div>');
-});
+    addAddressFields();
+  });
 
 
   $("form#new-contact").submit(function(event) {
@@ -75,8 +78,10 @@ $(document).ready(function() {
     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
       resetFields();
 
-    $(".contact").last().click(function() {
-      $("#show-contact").show();
+
+
+    $(".contact").last().hover(function() {
+      $("#show-contact").fadeToggle(500);
 
       $("#show-contact h2").text(newContact.firstName);
       $(".first-name").text(newContact.firstName);
